@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .info-box {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Hello World</h1>
+
+<div class="info-box">
+    <h2>System Information</h2>
+    <p><strong>OS Version:</strong> Ubuntu 20.04.1 LTS</p>
+    <p><strong>Free Disk Space:</strong> 150 GB</p>
+    <p><strong>Memory Usage:</strong> 4 GB used, 12 GB free</p>
+</div>
+
+<div class="info-box">
+    <h2>Running Processes</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>PID</th>
+            <th>Process Name</th>
+            <th>CPU Usage</th>
+            <th>Memory Usage</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1010</td>
+            <td>systemd</td>
+            <td>0.5%</td>
+            <td>50 MB</td>
+        </tr>
+        <tr>
+            <td>1020</td>
+            <td>nginx</td>
+            <td>1.2%</td>
+            <td>80 MB</td>
+        </tr>
+        <tr>
+            <td>1030</td>
+            <td>python</td>
+            <td>3.0%</td>
+            <td>120 MB</td>
+        </tr>
+        <tr>
+            <td>1040</td>
+            <td>mysql</td>
+            <td>2.1%</td>
+            <td>200 MB</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
