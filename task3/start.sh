@@ -1,0 +1,1 @@
+java -jar /task3.jar

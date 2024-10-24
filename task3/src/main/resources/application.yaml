@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: task3
+
+username: ${DEVOPS}
