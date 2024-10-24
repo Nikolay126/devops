@@ -9,10 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: go to task 3 directory
-        id: navigate-to-task3
-        run: cd task3/
       - name: build jar
+        working-directory: ./task3
         run: mvn clean package
       - name: login to docker hub
         id: docker-hub
