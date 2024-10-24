@@ -18,10 +18,9 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       - name: build the docker image
-        working-directory: ./task3
         uses: docker/build-push-action@v4
         with:
           context: .
-          dockerfile: Dockerfile
+          dockerfile: task3/Dockerfile
           push: true
           tags: insolenset/task3:$(date +%s)
