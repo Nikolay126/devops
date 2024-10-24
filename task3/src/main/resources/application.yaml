@@ -1,5 +1,13 @@
 spring:
-  application:
-    name: task3
+  application.name: task3
+
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    schema: task3
+
+  jpa:
+    show-sql: true
 
 username: ${DEVOPS}
