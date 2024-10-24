@@ -8,19 +8,20 @@ jobs:
     name: push docker image to docker hub
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: build jar
         working-directory: ./task3
         run: mvn clean package
       - name: login to docker hub
-        id: docker-hub
-        env:
-          username: ${{secrets.DOCKERHUB_USERNAME}}
-          password: ${{secrets.DOCKERHUB_PASSWORD}}
-        run: docker login -u $username -p $password
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       - name: build the docker image
-        id: build-docker-image
-        run: docker build . --file Dockerfile -t insolenset/task3:$(date +%s)
-      - name: push the docker image
-        id: push-docker-image
-        run: docker push ${{secrets.DOCKERHUB_USERNAME}}/demo-image-test:latest
+        working-directory: ./task3
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          dockerfile: Dockerfile
+          push: true
+          tags: insolenset/task3:$(date +%s)
