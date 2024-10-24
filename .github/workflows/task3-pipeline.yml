@@ -18,6 +18,7 @@ jobs:
           distribution: 'corretto'
           cache: maven
       - name: Build with Maven
+        working-directory: ./task3
         run: mvn -B package --file pom.xml
 
       - name: Update dependency graph
