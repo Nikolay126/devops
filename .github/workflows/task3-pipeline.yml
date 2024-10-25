@@ -27,7 +27,7 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: Upload JAR as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: task3-jar
           path: task3/target/task3-0.0.1.jar
@@ -43,7 +43,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Download JAR artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: task3-jar
           path: task3/target/task3-0.0.1.jar
@@ -61,7 +61,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: build the docker image
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v6
         with:
           context: ./task3
           dockerfile: /Dockerfile
