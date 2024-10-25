@@ -1,0 +1,25 @@
+services:
+  hello-world:
+    image: hello-world
+    deploy:
+      mode: replicated
+      replicas: 5
+
+  task3:
+    container_name: task3_app
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+    env_file:
+      .env.task3_app
+
+  postgres:
+    image: postgres:13.16
+    container_name: postgres
+    env_file: .env.postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./pg-data-init.sql:/docker-entrypoint-initdb.d/pg-data.init.sql
