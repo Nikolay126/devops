@@ -1,0 +1,27 @@
+name: YAML Linter
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  yaml-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install YAML linter
+        run: npm install -g yaml-lint
+
+      - name: Run YAML linter
+        run: |
+          yaml-lint task4/src/main/resources/application.yaml
+        continue-on-error: false
