@@ -1,0 +1,13 @@
+spring:
+  application.name: task3
+
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/task3}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:postgres}
+    schema: task3
+
+  jpa:
+    show-sql: true
+
+username: ${DEVOPS}
