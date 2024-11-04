@@ -1,0 +1,22 @@
+name: YAML Linter
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  yaml-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install YAML linter
+        run:  sudo apt-get install yamllint
+
+      - name: Run YAML linter
+        run: |
+          yamllint task4/src/main/resources/application.yaml
+        continue-on-error: false
